@@ -6,7 +6,6 @@
   <title>はじめての名古屋観光</title>
 
   <style>
-    /* 全体 */
     * {
       box-sizing: border-box;
     }
@@ -51,14 +50,38 @@
       color: #000000;
     }
 
-    /* 画像 */
-    section img {
+    /* 観光スポット */
+    .spot {
+      cursor: pointer;
+      padding: 15px;
+      margin-top: 15px;
+      background-color: #f0fff0;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .spot:hover {
+      background-color: #ddffdd;
+      transform: translateY(-2px);
+    }
+
+    .spot img {
       width: 100%;
       max-width: 600px;
       height: auto;
       display: block;
-      margin: 15px auto 0;
+      margin: 15px auto;
       border-radius: 8px;
+    }
+
+    /* 詳細情報 */
+    .detail {
+      display: none;
+      background-color: #fff8dc;
+      padding: 20px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border-left: 5px solid #66CC66;
     }
 
     /* フッター */
@@ -96,29 +119,65 @@
     <h1>はじめての名古屋観光</h1>
   </header>
 
-  <!-- メインコンテンツ -->
+  <!-- メイン -->
   <main>
 
     <section>
       <h2>観光スポット</h2>
-      <p>
-        名古屋を代表する歴史的スポットや観光名所を紹介します。
-      </p>
 
-      <img
-        src="https://github.com/s2akura/nagoyakannkousaito/blob/main/nagoya.jpg?raw=true"
-        alt="名古屋の観光スポット">
+      <!-- 名古屋城 -->
+      <div class="spot" onclick="showDetail('nagoyaCastle')">
+        <h3>🏯 名古屋城</h3>
+
+        <img
+          src="https://github.com/s2akura/nagoyakannkousaito/blob/main/nagoya.jpg?raw=true"
+          alt="名古屋城">
+
+        <p>クリックすると詳しい情報が表示されます。</p>
+
+        <div id="nagoyaCastle" class="detail">
+          <h3>名古屋城について</h3>
+          <p>
+            名古屋城は、名古屋を代表する歴史的な観光スポットです。
+            金のしゃちほこが有名で、名古屋を訪れたらぜひ見ておきたい場所の一つです。
+          </p>
+          <p>
+            城内では歴史や文化について学ぶことができます。
+            周辺を散策しながら、名古屋の歴史を楽しむこともできます。
+          </p>
+        </div>
+      </div>
+
+      <!-- 熱田神宮 -->
+      <div class="spot" onclick="showDetail('atsutaJingu')">
+        <h3>⛩️ 熱田神宮</h3>
+
+        <p>クリックすると詳しい情報が表示されます。</p>
+
+        <div id="atsutaJingu" class="detail">
+          <h3>熱田神宮について</h3>
+          <p>
+            熱田神宮は、名古屋を代表する歴史ある神社です。
+            多くの人が参拝に訪れる人気の観光スポットです。
+          </p>
+        </div>
+      </div>
+
     </section>
 
+    <!-- グルメ -->
     <section>
       <h2>グルメ</h2>
+
       <p>
-        名古屋名物の味噌カツや手羽先など、おすすめのグルメを紹介します。
+        名古屋名物の味噌カツや手羽先など、
+        おすすめのグルメを紹介します。
       </p>
 
       <img
         src="https://github.com/s2akura/nagoyakannkousaito/blob/main/nagoyameshi.jpg?raw=true"
-        alt="名古屋グルメ">
+        alt="名古屋グルメ"
+        style="width: 100%; max-width: 600px; display: block; margin: auto; border-radius: 8px;">
     </section>
 
   </main>
@@ -133,6 +192,19 @@
       <a href="https://x.com/" target="_blank">X</a>
     </p>
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showDetail(id) {
+      const detail = document.getElementById(id);
+
+      if (detail.style.display === "block") {
+        detail.style.display = "none";
+      } else {
+        detail.style.display = "block";
+      }
+    }
+  </script>
 
 </body>
 </html>
